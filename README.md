@@ -1,8 +1,8 @@
 # 动态权限申请库
-#1.注册清单
+# 1.注册清单
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-#2.调用方式
+# 2.调用方式
     DiPermission.build(PermissionConstants.STORAGE, PermissionConstants.PHONE)
             .callback(object : FullCallback {
                 override fun onGranted(permissionsGranted: MutableList<String>?) {
