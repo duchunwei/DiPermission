@@ -1,0 +1,3 @@
+include ':di-permission'
+include ':app'
+rootProject.name = "DiPermission"

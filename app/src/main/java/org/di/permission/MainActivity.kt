@@ -1,9 +1,18 @@
-# 动态权限申请库
-#1.注册清单
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-#2.调用方式
-    DiPermission.build(PermissionConstants.STORAGE, PermissionConstants.PHONE)
+package org.di.permission
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AlertDialog
+
+class MainActivity : AppCompatActivity() {
+    private var isOpenSetting: Boolean = true
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        DiPermission.build(PermissionConstants.STORAGE, PermissionConstants.PHONE)
             .callback(object : FullCallback {
                 override fun onGranted(permissionsGranted: MutableList<String>?) {
                     //申请通过的权限
@@ -19,3 +28,5 @@
             }).rationale {
                 //多次调用弹窗提醒权限
             }.request()
+    }
+}
